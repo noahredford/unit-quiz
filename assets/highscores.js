@@ -1,11 +1,11 @@
 
-const highScoresText = document.querySelector("#high-scores");
-let highScoresTag = '';
+const scores = document.querySelector("#high-scores");
+let actualScore = '';
 
 
 for (let i = 0; i < localStorage.length; i++) {
 highScoreData = JSON.parse(localStorage.getItem(i+1));
-highScoresTag = highScoresTag.concat('</br><div id="high-scores">'+ highScoreData.initials + " "+"-"+" " + highScoreData.score +'</div>');
+actualScore = actualScore.concat('</br><div id="high-scores">'+ highScoreData.initials + " "+"-"+" " + highScoreData.score +'</div>');
 };
 
-highScoresText.innerHTML = highScoresTag;
+scores.innerHTML = actualScore;
