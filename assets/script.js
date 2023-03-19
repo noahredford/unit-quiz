@@ -1,15 +1,15 @@
-const startScreen = document.querySelector("#start");
-const startBtn = document.querySelector("#main-btn");
-const infoBox = document.querySelector(".instructions");
-const exitBtn = document.querySelector(".end");
-const continueBtn = document.querySelector(".retry");
-const quizBox = document.querySelector(".main-box");
-const endBox = document.querySelector("#quiz-end");
-const submitBtn = document.querySelector("#user-score");
-const initialsText = document.querySelector("#initials");
+var startScreen = document.querySelector("#start");
+var startBtn = document.querySelector("#main-btn");
+var infoBox = document.querySelector(".instructions");
+var exitBtn = document.querySelector(".end");
+var continueBtn = document.querySelector(".retry");
+var quizBox = document.querySelector(".main-box");
+var endBox = document.querySelector("#quiz-end");
+var submitBtn = document.querySelector("#user-score");
+var initialsText = document.querySelector("#initials");
 var existing = localStorage.getItem('results');
 existing = existing ? existing.split(',') : [];
-var queCount = 0;
+var timerCounter = 0;
 var score = 0;
 
 
@@ -33,26 +33,26 @@ startBtn.onclick = () => {
 
     startScreen.classList.add("hide");
     quizBox.classList.remove("hide");
-    displayQuestions(queCount)
+    displayQuestions(timerCounter)
 };
 
 
 function optionSelected(answer){
-    if (queCount>=10){
+    if (timerCounter>=10){
         return;
     }
     let userAns = answer.textContent;
-    let correctAns = questions[queCount].answer;
+    let correctAns = questions[timerCounter].answer;
     if(userAns == correctAns){
         console.log("Correct");
-        const userResponse = document.querySelector("#userResponse");
+        var userResponse = document.querySelector("#userResponse");
         userResponse.innerHTML = '<div id="userResponse"><span>Correct!</span></div>';
         setTimeout(nextQuestion, 500)
         score += 1
 
     }else{
         console.log("incorrect");
-        const userResponse = document.querySelector("#userResponse");
+        var userResponse = document.querySelector("#userResponse");
         userResponse.innerHTML = '<div id="userResponse"><span>Wrong!</span></div>';
         setTimeout(nextQuestion, 500)
         counter -= 5
@@ -60,11 +60,11 @@ function optionSelected(answer){
 }
 
 function displayQuestions(index){
-    if (queCount>=10){
+    if (timerCounter>=10){
         return;
     }
-    const queText = document.querySelector(".que-text");
-    const optionList = document.querySelector("#choices");
+    var queText = document.querySelector(".que-text");
+    var optionList = document.querySelector("#choices");
     let queTag = "<span>"+ questions[index].numb + ". "+ questions[index].question +"</span>";
     let optionTag = '<div class="option">'+ questions[index].options[0] + '<span></span></div>'
                     + '<div class="option">'+ questions[index].options[1] + '<span></span></div>'
@@ -72,20 +72,20 @@ function displayQuestions(index){
                     + '<div class="option">'+ questions[index].options[3] + '<span></span></div>'
     queText.innerHTML = queTag;
     optionList.innerHTML = optionTag;
-    const option = optionList.querySelectorAll(".option");
+    var option = optionList.querySelectorAll(".option");
     for (let i = 0; i < option.length; i++) {
         option[i].setAttribute("onclick", "optionSelected(this)");
     }
 }
 
 function nextQuestion(){
-    queCount++;
-    if(queCount == 10){
+    timerCounter++;
+    if(timerCounter == 10){
         
         End()
     };
-    displayQuestions(queCount);
-    const userResponse = document.querySelector("#userResponse");
+    displayQuestions(timerCounter);
+    var userResponse = document.querySelector("#userResponse");
     userResponse.innerHTML = '<div id="userResponse"><span></span></div>';
     }
 
@@ -93,8 +93,8 @@ function nextQuestion(){
 function End(){
     quizBox.classList.add("hide");
     endBox.classList.remove("hide");
-    const Text = document.querySelector(".score");
-    let Tag = '<h3 class="score"> Your score was '+ score +' out of 10!</h3>';
+    var Text = document.querySelector(".score");
+    let Tag = '<h3 class="score"> Your score is '+ score +'!</h3>';
     Text.innerHTML = Tag; 
 }
 

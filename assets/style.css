@@ -27,12 +27,12 @@ body{
 }
 
 
-.info-box{
+.instructions{
     width: 540px;
     background: var(--offWHite);
     border-radius: 5px;
 }
-.info-box .info-title {
+.instructions .info-title {
     height: 60px;
     border-bottom: 1px solid lightgray;
     display: flex;
@@ -43,19 +43,19 @@ body{
     text-align: center;
     justify-content: center;
 }
-.info-box .info-list{
+.instructions .info-list{
     padding: 15px 35px;
 }
-.info-box .info-list .info{
+.instructions .info-list .info{
     margin: 5px 0;
     font-size: 17px;
 }
-.info-box .info-list .info span{
+.instructions .info-list .info span{
     font-weight: 600;
     color: lightskyblue;   
 }
 
-.quiz-box{
+.main-box{
     width: 540px;
     background: var(--offWHite);
     border-radius: 5px;
@@ -66,7 +66,7 @@ body{
 #timeRem{
     margin-top: 5;
 }
-#start-btn{
+#main-btn{
     width: 50%;
     background-color: var(--BLUE);
     border-color: var(--offWHite);
@@ -75,11 +75,11 @@ body{
     letter-spacing: 2px;
     border-radius: 10px;
 }
-#start-btn:hover{
+#main-btn:hover{
     background: var(--white);
     color: var(--blue);
 }
-.info-box .buttons{
+.instructions .buttons{
     height: 60px;
     display: flex;
     align-items: center;
@@ -87,7 +87,7 @@ body{
     padding: o 35px;
     border-top: 1px solid lightgray;
 } 
-.info-box .buttons button{
+.instructions .buttons button{
     margin: 0 5px;
     height: 40px;
     width: 100px;
@@ -100,20 +100,20 @@ body{
     cursor:grab;
     transition: all 0.3s ease;
 }
-.buttons button.quit{
+.buttons button.end{
     border-color: var(--BLUE);
     background-color: var(--b);
     color: var(--BLUE);
 }
-.buttons button.restart{
+.buttons button.retry{
     color: var(--offWHite);
     background: var(--BLUE);
 }
-.buttons button.quit:hover{
+.buttons button.end:hover{
     background: var(--BLUE);
     color: var(--offWHite);
 }
-.buttons button.restart:hover{
+.buttons button.retry:hover{
     background: var(--yellow);
     color: var(--white);
 }
@@ -135,7 +135,7 @@ body{
 #initials, #saveScore {
     width: 100px;
 }
-#response{
+#userResponse{
     height: 60px;
     display: flex;
     align-items: center;
@@ -166,7 +166,7 @@ body{
   padding: 4vh;
 }
 
-#homepage1 {
+#mainPage {
     text-decoration: none;
     font-size: 50px;
     color: black;
@@ -175,12 +175,12 @@ body{
     justify-content: center;
 }
 
-a.hompage1:visited {
+a.mainPage:visited {
     color: black;
     text-decoration: none;
 }
 
-a.hompage1:link {
+a.mainPage:link {
     color: black;
     text-decoration: none;
 }

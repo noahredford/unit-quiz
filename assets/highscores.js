@@ -1,5 +1,5 @@
 
-const scores = document.querySelector("#high-scores");
+var scores = document.querySelector("#high-scores");
 let actualScore = '';
 
 
